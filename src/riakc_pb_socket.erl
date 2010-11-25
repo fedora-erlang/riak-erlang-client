@@ -1252,7 +1252,7 @@ maybe_start_network() ->
 
 bad_connect_test() ->
     %% Start with an unlikely port number
-    ?assertEqual({error, {tcp, econnrefused}}, start({127,0,0,1}, 65535)).
+    ?assertEqual({error, {tcp, {tcp, econnrefused}}}, start({127,0,0,1}, 65535)).
 
 queue_disconnected_test() ->
     %% Start with an unlikely port number
@@ -1264,7 +1264,7 @@ queue_disconnected_test() ->
 auto_reconnect_bad_connect_test() ->
     %% Start with an unlikely port number
     {ok, Pid} = start({127,0,0,1}, 65535, [auto_reconnect]),
-    ?assertEqual({false, [{econnrefused,1}]}, is_connected(Pid)),
+    ?assertEqual({false, [{{tcp,econnrefused},1}]}, is_connected(Pid)),
     ?assertEqual({error, disconnected}, ping(Pid)),
     ?assertEqual({error, disconnected}, list_keys(Pid, <<"b">>)),
     stop(Pid).

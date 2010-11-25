@@ -286,6 +286,10 @@ pbify_bool(N) when is_integer(N) ->
 erlify_bool(0) ->
     false;
 erlify_bool(1) ->
+    true;
+erlify_bool(false) ->
+    false;
+erlify_bool(true) ->
     true.
 
 %% Make sure an atom/string/binary is definitely a binary
