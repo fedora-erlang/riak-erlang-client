@@ -1003,8 +1003,8 @@ connect(State) when State#state.sock =:= undefined ->
         {ok, Sock} ->
             {ok, State#state{sock = Sock, connects = Connects+1, 
                              reconnect_interval = ?FIRST_RECONNECT_INTERVAL}};
-        Error ->
-            Error
+        {error, Error} ->
+            {error, {tcp, Error}}
     end.
 
 %% @private
