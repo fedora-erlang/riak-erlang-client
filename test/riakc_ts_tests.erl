@@ -19,11 +19,7 @@
 %% under the License.
 %%
 %% -------------------------------------------------------------------
--ifdef(TEST).
-
 -module(riakc_ts_tests).
-
--compile(export_all).
 
 -include("riakc.hrl").
 
@@ -96,4 +92,3 @@ integration_test_() ->
                  end
              end,
     {setup, SetupFun, CleanupFun, {generator, GenFun}}.
--endif.

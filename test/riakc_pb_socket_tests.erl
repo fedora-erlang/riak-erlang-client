@@ -19,11 +19,7 @@
 %% under the License.
 %%
 %% -------------------------------------------------------------------
--ifdef(TEST).
-
 -module(riakc_pb_socket_tests).
-
--compile(export_all).
 
 -include("riakc.hrl").
 
@@ -1465,4 +1461,3 @@ integration_test_() ->
                  end
              end,
     {setup, SetupFun, CleanupFun, {generator, GenFun}}.
--endif.

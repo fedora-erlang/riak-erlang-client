@@ -19,11 +19,9 @@
 %% under the License.
 %%
 %% -------------------------------------------------------------------
--ifdef(TEST).
-
 -module(riakc_test_utils).
 
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 -include_lib("eunit/include/eunit.hrl").
 
@@ -242,5 +240,3 @@ maybe_start_network() ->
         X ->
             X
     end.
-
--endif.
